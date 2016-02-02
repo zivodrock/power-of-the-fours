@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg x="0px" y="0px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient-1" gradientUnits="userSpaceOnUse" x1="36.808000564575195" y1="0.010000000707805157" x2="36.808000564575195" y2="39.262998352758586">
+      <stop style="stop-color: rgb(0, 0, 0);" offset="0"/>
+      <stop style="stop-color: rgb(0, 0, 0);" offset="1"/>
+    </linearGradient>
+    <radialGradient id="gradient-2" gradientUnits="userSpaceOnUse" cx="36.808000564575195" cy="19.636499176733196" r="26.16200065612793">
+      <stop style="stop-color: rgb(0, 0, 0);" offset="0"/>
+      <stop style="stop-color: rgb(0, 0, 0);" offset="1"/>
+    </radialGradient>
+    <pattern id="pattern-1" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse" viewBox="0 0 100 100">
+      <path d="M 0 0 L 50 0 L 50 100 L 0 100 Z" style="fill: black;"/>
+    </pattern>
+    <pattern id="pattern-1-1" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pattern-1" patternTransform="matrix(0.9999999046325684, 0, 0, 1, 26.808000564575195, 9.636499404907227)"/>
+  </defs>
+  <path d="M19.426-1" style="fill: rgb(0, 0, 0);"/>
+  <path d="M62.97,37.163L35.968,0.01H10.646l28.326,39.253c4.404-2.22,9.371-3.479,14.628-3.479  C56.857,35.785,60.001,36.271,62.97,37.163z" style="fill: rgb(254, 226, 52);"/>
+  <path d="M53.601,42.603c-14.225,0-25.799,11.574-25.799,25.8c0,14.225,11.574,25.799,25.799,25.799  c14.226,0,25.8-11.574,25.8-25.799C79.4,54.177,67.826,42.603,53.601,42.603z" style="fill: rgb(254, 226, 52);"/>
+  <path d="M53.601,37.805c-16.871,0-30.597,13.726-30.597,30.598C23.003,85.273,36.729,99,53.601,99s30.598-13.727,30.598-30.597  C84.198,51.531,70.472,37.805,53.601,37.805z M53.601,95.717c-15.061,0-27.314-12.253-27.314-27.313  c0-15.062,12.253-27.315,27.314-27.315c15.062,0,27.314,12.253,27.314,27.315C80.915,83.464,68.662,95.717,53.601,95.717z" style="fill: rgb(254, 226, 52);"/>
+  <path d="M 51.43600082397461 17.732999801635742 L 52.375999450683594 19.027000427246094 L 64.60199737548828 35.8489990234375 L 89.35399627685547 0.010000000707805157 L 64.09700012207031 0.010000000707805157 Z" style="fill: rgb(254, 226, 52);"/>
+  <text style="font-size: 30;" transform="matrix(1, 0, 0, 1, 0, -4.440892098500626e-16)" x="159.31858825683594" y="67.56906127929688"><tspan>#FEE234</tspan></text>
+</svg>

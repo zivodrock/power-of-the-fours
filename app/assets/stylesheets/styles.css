@@ -1,0 +1,718 @@
+@font-face {font-family: "StarWarsFont";
+    src: url("starwars-font.eot");
+    src: url("starwars-font.eot?#iefix") format("embedded-opentype"),
+    url("starwars-font.ttf") format("truetype"),
+    url("starwars-font.svg#ITCSerifGothicW01-Heavy") format("svg");
+}
+
+@font-face {
+    font-family: 'starwars-player-icons';
+    src:    url('starwars-player-icons.eot?fv30i0');
+    src:    url('starwars-player-icons.eot?fv30i0#iefix') format('embedded-opentype'),
+    url('starwars-player-icons.ttf?fv30i0') format('truetype'),
+    url('starwars-player-icons.woff?fv30i0') format('woff'),
+    url('starwars-player-icons.svg?fv30i0#starwars-player-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="sw-icon-"], [class*=" sw-icon-"] {
+    font-family: 'starwars-player-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    background: #15151b;
+    height: 100%;
+    position: relative;
+    color: black;
+    letter-spacing: 1px;
+}
+
+a {
+    cursor: pointer;
+}
+
+@keyframes animate-load-spin {
+    100%{ transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-o-keyframes animate-load-spin {
+    100%{ -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-ms-keyframes animate-load-spin {
+    100%{ -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-webkit-keyframes animate-load-spin {
+    100%{ -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-moz-keyframes animate-load-spin {
+    100%{ -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+.ai-loader-container {
+    display: inline-block;
+    width: 30px;
+    height: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.ai-loader {
+    width: 15px;
+    height: 15px;
+    margin: 0 auto;
+    border: 2px solid orange;
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-right-color: transparent;
+
+    animation: animate-load-spin 600ms infinite linear;
+    -o-animation: animate-load-spin 600ms infinite linear;
+    -ms-animation: animate-load-spin 600ms infinite linear;
+    -webkit-animation: animate-load-spin 600ms infinite linear;
+    -moz-animation: animate-load-spin 600ms infinite linear;
+}
+
+#main-menu-btn {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 15px 20px;
+    padding: 0;
+}
+
+#main-menu-btn > span {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    line-height: 10px;
+}
+#main-menu-btn > span:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 6px double #FEE234;
+    border-bottom: 2px solid #FEE234;
+}
+
+.stars, .animated-stars {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+.stars {
+    background:#000 url(stars.png) repeat top center;
+    background-position-y: 0;
+
+    transition: all 3s ease-in-out;
+    -webkit-transition: all 3s ease-in-out;
+}
+
+.stars.move-up {
+    background-position-y: 100%;
+}
+.animated-stars {
+    background: transparent url(animated-stars.png) repeat top center;
+}
+/*
+.animated-stars{
+    background:transparent url(animated-stars.png) repeat top center;
+    -moz-animation:animate-stars 500s linear infinite;
+    -ms-animation:animate-stars 500s linear infinite;
+    -o-animation:animate-stars 500s linear infinite;
+    -webkit-animation:animate-stars 500s linear infinite;
+    animation:animate-stars 500s linear infinite;
+}
+*/
+.modal-dialog {
+    top: 200px;
+}
+.modal-content {
+    border-radius: 0;
+    background-color: #FEE234;
+    box-shadow: none;
+    border: 0;
+}
+.modal-header {
+    border-bottom: 0;
+}
+
+#page-container {
+    display: table;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-width: 800px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+}
+
+#container-verthorz-middle {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#intro {
+    display: inline-block;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    background-size: 550px;
+    background-image: url(starwars-logo.svg);
+    background-position: center center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 0;
+    opacity: 1;
+
+    -ms-transform: scale(0,0);
+    transform: scale(0,0);
+    -webkit-transform: scale(0,0);
+
+    transition: all 1s ease-out, top 5s ease-in-out;
+    -webkit-transition: all 1s ease-out, top 5s ease-in-out;
+}
+#intro.reveal {
+    -ms-transform: scale(1,1);
+    transform: scale(1,1);
+    -webkit-transform: scale(1,1);
+}
+#intro.hideup {
+    top: -150em;
+}
+.power-of-fours-title {
+    font-family: "StarWarsFont", sans-serif;
+    font-size: 250%;
+    color: white;
+    display: block;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 6px;
+    text-indent: 12px;
+    line-height: 400px;
+    height: 100%;
+    opacity: 0;
+
+    transition: opacity 4s ease-in-out, letter-spacing 7s ease-out;
+    -webkit-transition: opacity 4s ease-in-out, letter-spacing 7s ease-out;
+}
+.power-of-fours-title.reveal {
+    opacity: 1;
+    letter-spacing: 12px;
+}
+
+#board {
+    margin:0 auto;
+    text-align: center;
+    max-width: 600px;
+    display: none;
+}
+
+#board .board-row {
+    display: inline-block;
+    margin-bottom: -5px;
+}
+
+#board .board-row:last-child > .board-cell {
+    border-bottom: 0;
+}
+#board .board-row:last-child > .board-cell:after {
+    display: none;
+}
+
+#board .board-row > .board-cell {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    padding: 10px;
+    border-right: solid 1px #FEE234;
+    border-bottom: solid 1px #FEE234;
+    float: left;
+    position: relative;
+}
+
+#board .board-row > .board-cell:after {
+    position: absolute;
+    display: inline-block;
+    content: "";
+    background: #FEE234;
+    width: 7px;
+    height: 7px;
+    right: -4px;
+    bottom: -4px;
+    transform: rotate(45deg);
+}
+
+#board .board-row > .board-cell:last-child {
+    border-right: 0;
+}
+#board .board-row > .board-cell:last-child:after {
+    display: none;
+}
+
+#board .board-row > .board-cell > a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+#board .board-row.game-end > .board-cell:not(.winning-cells) > a > span {
+    opacity: 0.25;
+}
+
+#board .board-row > .board-cell > a > span {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    -ms-transform: scale(0,0);
+    transform: scale(0,0);
+    -webkit-transform: scale(0,0);
+
+    transition: all .15s ease-in-out;
+    -webkit-transition: all .15s ease-in-out;
+}
+
+#board .board-row > .board-cell > a > span:after {
+    display: inline-block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 1);
+
+    transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+}
+#board .board-row > .board-cell > a:not(.occupied):hover {
+    background-size: 75%;
+    background-image: url(drophere.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+#board .board-row > .board-cell > a.occupied {
+    cursor: default;
+}
+#board .board-row > .board-cell > a.occupied > span {
+    -ms-transform: scale(1,1);
+    transform: scale(1,1);
+    -webkit-transform: scale(1,1);
+}
+
+#board .board-row > .board-cell > a.occupied > span:after {
+    opacity: 0;
+}
+
+#board .board-row > .board-cell > a[data-player='1'] > span {
+    background-size: 75%;
+    background-image: url(rebellion-logo.svg);
+    background-position: center center;
+    background-color: lightskyblue;
+    background-repeat: no-repeat;
+    border: solid 2px #0CA0E6;
+    box-shadow: 0px 0px 15px 0px rgba(12, 160, 230, 1);
+}
+
+#board .board-row > .board-cell > a[data-player='2'] > span {
+    color: white;
+    background-size: 75%;
+    background-image: url(republic-logo.svg);
+    background-position: center center;
+    background-color: darkred;
+    background-repeat: no-repeat;
+    border: solid 2px #ff0000;
+    box-shadow: 0px 0px 15px 0px rgba(255, 0, 0, 1);
+}
+
+#board .board-row > .board-cell > a[data-player='3'] > span {
+    color: white;
+    background-size: 75%;
+    background-image: url(gungan-logo.svg);
+    background-position: center center;
+    background-color: darkorange;
+    background-repeat: no-repeat;
+    border: solid 2px orange;
+    box-shadow: 0px 0px 15px 0px rgba(255, 160, 0, 1);
+}
+
+.hexagon {
+    position: relative;
+    width: 400px;
+    height: 230.94px;
+    margin: 115.47px 0;
+}
+
+.hexagon:before,
+.hexagon:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+}
+
+.hexagon:before {
+    bottom: 100%;
+}
+
+.hexagon:after {
+    top: 100%;
+    width: 0;
+}
+
+.modal-hexagon {
+    margin: 0 auto;
+    background-color: #FEE234;
+}
+.modal-hexagon:before {
+    border-bottom: 115.47px solid #FEE234;
+}
+.modal-hexagon:after {
+    border-top: 115.47px solid #FEE234;
+}
+
+.modal-hexagon h3 {
+    width: 75%;
+    margin: 20px auto 10px;
+    padding: 15px 0;
+    border-bottom: solid 1px;
+}
+
+.game-logo {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 70px;
+    color: black;
+    font-size: 0.85em;
+    line-height: 70px;
+    font-family: 'StarWarsFont', sans-serif;
+    letter-spacing: 1px;
+    background-size: 125px;
+    background-image: url(starwars-logo-black.svg);
+    background-position: center center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    margin-top: -25px;
+}
+.game-logo:before {
+    content: "POWER OF THE FOURS";
+}
+#game-menu, #level-menu {
+    display: none;
+}
+#goodluck, #goodbye {
+    display: none;
+    color: #FEE234;
+    font-family: 'StarWarsFont', sans-serif;
+    font-size: 2em;
+}
+
+.modal-hexagon ul {
+    margin: 0 auto;
+    padding: 10px 0 0;
+}
+.modal-hexagon ul li {
+    list-style: none;
+    margin: 0 0 5px;
+}
+.modal-hexagon ul li a {
+    font-size: 1.5em;
+    color: black;
+}
+
+#level-menu a:not(.back-to-game-menu) {
+    display: inline-block;
+    width: 85px;
+    height: 100px;
+    background-size: 80%;
+    background-position: top center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    position: relative;
+    font-size: 1.5em;
+}
+#level-menu a.back-to-game-menu {
+    position: absolute;
+    display: inline-block;
+    bottom: -25%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    color: black;
+}
+
+#level-menu a.popover-shown:before {
+    content: attr(data-title) "";
+    position: absolute;
+    bottom: 120%;
+    left: -75%;
+    display: inline-block;
+    width: 250%;
+    height: auto;
+    color: #FEE234;
+    font-size: 0.75em;
+    background-color: black;
+    padding: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+}
+#level-menu a.popover-shown:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-image: url(notchdown.svg);
+    background-size: 30%;
+    background-position: top center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+#level-menu a.popover-shown.yoda:before {
+    color: greenyellow;
+    text-shadow: 0px 0px 5px rgba(152, 251, 110, 1);
+}
+#level-menu a.popover-shown.vader:before {
+    color: red;
+    text-shadow: 0px 0px 5px rgba(255, 0, 0, 1);
+}
+
+a.jarjar {
+    background-image: url(jarjar.svg);
+}
+a.yoda {
+    background-image: url(yoda.svg);
+}
+a.vader {
+    background-image: url(vader.svg);
+}
+
+#level-menu a span {
+    color: black;
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+}
+#level-menu a:hover span{
+    text-decoration: underline;
+}
+
+.sw-icon-finn:before {
+    content: "\e900";
+}
+.sw-icon-jarjar:before {
+    content: "\e901";
+}
+.sw-icon-kylo:before {
+    content: "\e902";
+}
+
+#player-turn-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+
+#player-turn-container > div {
+    height: 100%;
+    position: relative;
+    font-size: 2em;
+    display: none;
+}
+#player-turn-container > div > span {
+    position: absolute;
+    bottom: -5px;
+    width: 200px;
+    height: 140px;
+    font-size: 5em;
+    line-height: 1px;
+}
+#player-turn-container > div > span:before {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    display: inline-block;
+    width: 7px;
+    height: 130%;
+    border-radius: 3px;
+    margin-top: -5px;
+}
+#player-turn-container > div.player-1 {
+    text-align: left;
+    padding-left: 140px;
+    color: #0CA0E6;
+    border-bottom: solid 5px #0CA0E6;
+    text-shadow: 0px 0px 15px rgba(35, 206, 250, 1);
+}
+
+#player-turn-container > div.player-1 > span {
+    left: 0px;
+}
+#player-turn-container > div.player-1 > span:before {
+    left: 85px;
+    transform: rotate(20deg);
+    background-color: lightcyan;
+    border: solid 1px #0CA0E6;
+    box-shadow: 0px 0px 10px 0px rgba(12, 160, 230, 1);
+}
+
+#player-turn-container > div.player-2 {
+    text-align: right;
+    padding-right: 140px;
+    color: #ff0000;
+    border-bottom: solid 5px #ff0000;
+    text-shadow: 0px 0px 15px rgba(255, 0, 0, 1);
+}
+
+#player-turn-container > div.player-2 > span {
+    right: 0;
+}
+#player-turn-container > div.player-2 > span:before {
+    width: 8px;
+    border-radius: 50% 50% 2px 2px;
+    bottom: 5px;
+    right: 105px;
+    transform: rotate(-20deg);
+    background-color: lightpink;
+    border: solid 1px #ff0000;
+    box-shadow: 0px 0px 15px 0px rgba(255, 0, 0, 1);
+}
+#player-turn-container > div.player-2 > span:after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    display: inline-block;
+    width: 7px;
+    height: 32px;
+    border-radius: 80% 80% 2px 2px;
+    margin-top: -5px;
+    right: 52px;
+    transform: rotate(70deg);
+    background-color: lightpink;
+    border: solid 1px #ff0000;
+    box-shadow: 0px 0px 15px 0px rgba(255, 0, 0, 1);
+}
+#player-turn-container > div.player-3 {
+    text-align: right;
+    padding-right: 140px;
+    color: orange;
+    border-bottom: solid 5px orange;
+    text-shadow: 0px 0px 15px rgba(255, 165, 0, 1);
+}
+
+#player-turn-container > div.player-3 > span {
+    right: 0;
+}
+
+#result-container {
+    position: fixed;
+    top: 0%;
+    left: 0;
+    width: 215px;
+    height: 80px;
+}
+#result-container > div {
+    display: none;
+    height: 100%;
+    position: relative;
+    background-position: 10px center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+#result-container > .draw {
+    background-image: url(burnt-vader.svg);
+    background-size: 40px;
+}
+#result-container > .draw > p {
+    text-indent: 35px;
+}
+
+#result-container > .win {
+    background-image: url(medal.svg);
+    background-size: 50px;
+}
+#result-container > .win > span {
+    display: none;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 24px;
+    top: 36px;
+    background-size: 80%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+#result-container[data-result="win"] > .win {
+    display: block;
+}
+#result-container[data-result="draw"] > .draw {
+    display: block;
+}
+#result-container[data-player="1"] .player-1 {
+    display: inline-block;
+    background-image: url(rebellion-logo.svg);
+    background-color: lightskyblue;
+}
+#result-container[data-player="2"] .player-2 {
+    display: inline-block;
+    background-image: url(republic-logo.svg);
+    background-color: darkred;
+}
+#result-container[data-player="3"] .player-3 {
+    display: inline-block;
+    background-image: url(gungan-logo.svg);
+    background-color: darkorange;
+}
+
+#result-container > div > p {
+    font-size: 2em;
+    color: #FEE234;
+    text-shadow: 0px 0px 15px #FEE234;
+    line-height: 85px;
+}
